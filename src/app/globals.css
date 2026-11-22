@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   DESIGN TOKENS — default values only.
+   ✏️ To change colours, edit `theme` in /portfolio.config.ts
+   (the layout overrides these variables from there).
+------------------------------------------------------------------- */
+@theme {
+  --color-bg: #0b0c0e;
+  --color-card: #141619;
+  --color-panel: #51232f;
+  --color-line: #2a2e34;
+  --color-snow: #f3f4f6;
+  --color-mist: #c4c8ce;
+  --color-subtle: #8a9099;
+  --color-aviation: #1f5fa8;
+  --color-aviation-text: #6ea0da;
+  --color-cherry: #c8102e;
+  --color-cherry-text: #e8566b;
+
+  --font-sans: Helvetica, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SF Mono", ui-monospace, Menlo, Consolas, monospace;
+  --radius-card: 4px;
+  --radius-md: 3px;
+  --radius-xl: 4px;
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-mist);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--color-snow);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+::selection {
+  background: var(--color-aviation);
+  color: var(--color-bg);
+}
+
+/* Solid card */
+@utility card {
+  background: var(--color-card);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-card);
+}
+
+/* Card hover: aviation-blue edge */
+@utility card-hover {
+  transition: border-color 0.2s;
+  &:hover {
+    border-color: var(--color-aviation);
+  }
+}
+
+/* Primary button — aviation blue (shaded so white text stays readable) */
+@utility btn-primary {
+  background: color-mix(in srgb, var(--color-aviation) 72%, black);
+  color: #fff;
+  transition: background-color 0.2s;
+  &:hover {
+    background: color-mix(in srgb, var(--color-aviation) 60%, black);
+  }
+}
+
+/* Tags & metrics: 12–13px, 500–600, uppercase, 0.04em */
+@utility tag {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
